@@ -3,6 +3,7 @@
 
 ## Intelligent Code Completion
 - Add the following to jsconfig.json to get auto suggestion in vscode
+
   {
     "include": [
         "./node_modules/cypress",
@@ -19,6 +20,6 @@
 
 ![](cypress.png)
 
-##TODO
+## TODO
 
 CI/CD Integration
