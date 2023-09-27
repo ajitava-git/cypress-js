@@ -21,7 +21,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install cypress --save-dev
-          npm i -g chromedriver@117.0.5938.88
+          npm i -g chromedriver@117
           npm install -g @axe-core/cli
           
         
