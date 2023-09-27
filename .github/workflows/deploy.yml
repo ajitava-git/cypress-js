@@ -28,5 +28,5 @@ jobs:
 
       - name: Run Accessibility Checks
         run: 
-          npx axe --stdout https://qxf2.com/selenium-tutorial-main --tags wcag2a --verbose --show-errors --exit        
+          npx axe --stdout https://qxf2.com/selenium-tutorial-main --tags wcag2a --verbose --show-errors --exit --chromedriver-path="./chromedriver.exe"        
 
