@@ -17,7 +17,7 @@ jobs:
         uses: nanasess/setup-chromedriver@v2
         with:
           # Optional: do not specify to match Chrome's version
-          chromedriver-version: '117.0.5938.92'
+          chromedriver-version: '117.0.5938.88'
       - run: chromedriver --url-base=/wd/hub &        
 
       - name: Setup Node.js
