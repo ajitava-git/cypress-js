@@ -18,6 +18,15 @@ jobs:
         with:
           node-version: 14
 
+      - name: Set up ChromeDriver
+        run: |
+            CHROMEDRIVER_VERSION="117.0.5938.9"  # Replace with the desired version
+            CHROMEDRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/117.0.5938.92/win64/chromedriver-win64.zip"
+            wget "$CHROMEDRIVER_URL" -O chromedriver.zip
+            unzip chromedriver.zip
+            chmod +x chromedriver
+            mv chromedriver /usr/local/bin/
+
       - name: Install Dependencies
         run: |
           npm install cypress --save-dev
@@ -28,5 +37,5 @@ jobs:
 
       - name: Run Accessibility Checks
         run: 
-          npx axe --stdout https://qxf2.com/selenium-tutorial-main --tags wcag2a --verbose --show-errors --exit --chromedriver-path="./chromedriver.exe"        
+          npx axe --stdout https://qxf2.com/selenium-tutorial-main --tags wcag2a --verbose --show-errors --exit        
 
