@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Cypress Tests with Accessibility Check
 
 on:
   push:
@@ -22,11 +22,10 @@ jobs:
         run: |
           npm install cypress --save-dev
           npm i -g chromedriver@117
-          npm install -g @axe-core/cli
-          
+          npm install -g @axe-core/cli          
         
-      # - name: Run Cypress Tests
-      #   run: npx cypress run
+      - name: Run Cypress Tests
+        run: npx cypress run
 
       - name: Run Accessibility Checks
         run: 
