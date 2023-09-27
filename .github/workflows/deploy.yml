@@ -19,11 +19,14 @@ jobs:
           node-version: 14
 
       - name: Install Dependencies
-        run: npm install cypress axe-core --save-dev
-
+        run: |
+          npm install cypress --save-dev
+          npm install -g @axe-core/cli
+        
       - name: Run Cypress Tests
         run: npx cypress run
 
       - name: Run Accessibility Checks
-        run: npx axe --exit        
+        run: 
+          npx axe --exit        
 
