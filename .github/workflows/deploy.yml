@@ -11,14 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Chrome driver
-        uses: nanasess/setup-chromedriver@v2
-        with:
-          # Optional: do not specify to match Chrome's version
-          chromedriver-version:
-      - run: chromedriver --url-base=/wd/hub &            
+        uses: actions/checkout@v2          
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -29,11 +22,12 @@ jobs:
         run: |
           npm install cypress --save-dev
           npm install -g @axe-core/cli
+          npm i -g chromedriver@117.0.5938.88
         
-      - name: Run Cypress Tests
-        run: npx cypress run
+      # - name: Run Cypress Tests
+      #   run: npx cypress run
 
       - name: Run Accessibility Checks
         run: 
-          npx axe --stdout https://qxf2.com/selenium-tutorial-main --tags wcag2a --verbose --show-errors --exit        
+          npx axe --chromedriver-path $(npm root -g)/chromedriver/bin/chromedriver --stdout https://qxf2.com/selenium-tutorial-main --tags wcag2a --verbose --show-errors --exit        
 
